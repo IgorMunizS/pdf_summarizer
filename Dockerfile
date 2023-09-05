@@ -20,6 +20,6 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 COPY environment.yml /tmp
 RUN conda env update -n base -f /tmp/environment.yml
 
-COPY . /sigmamd_app
-WORKDIR /sigmamd_app
+COPY . /summarizer_app
+WORKDIR /summarizer_app
 CMD ["./startup.sh"]

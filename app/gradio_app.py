@@ -15,7 +15,7 @@ def main():
         description="Enter the path to a PDF file and get its summary.",
     )
     iface.queue()
-    iface.launch(share=True)
+    iface.launch(server_name="0.0.0.0")
 
 
 if __name__ == "__main__":

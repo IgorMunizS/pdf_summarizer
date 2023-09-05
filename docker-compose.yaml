@@ -1,45 +1,10 @@
 version: '3.8'
 services:
-    postgres:
-        image: postgres:15.1-alpine
-        restart: always
-        environment:
-          POSTGRES_DB: ${POSTGRES_DB}
-          POSTGRES_USER: ${POSTGRES_USER}
-          POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-        ports:
-          - '5434:5432'
-
-        logging:
-          options:
-            max-size: 10m
-            max-file: "3"
-        networks:
-          - sigmamd_net
-    redis:
-      image: redis:6.2-alpine
-      restart: always
-      ports:
-        - '6380:6379'
-      command: redis-server --save 20 1 --loglevel warning
-      networks:
-        - sigmamd_net
-
     app:
         build: .
         ports:
-          - "8000:8000"
+          - "8010:8000"
           - "7861:7860"
         environment:
           - API_HOST=${API_HOST}
           - API_PORT=${API_PORT}
-        depends_on:
-          postgres:
-           condition: service_started
-          redis:
-            condition: service_started
-        networks:
-          - sigmamd_net
-
-networks:
-  sigmamd_net:
