@@ -3,9 +3,10 @@
 
 This repository implements a solution using LLM to summarize a PDF File. 
 
-Using PyPDF2, Langchain and OpenAI, my approach was to extract all the text from a PDF file and then split it into chunks of up to 4000 tokens so that it can be sent to LLM. As LLM, ChatGPT-3.5-Turbo-16k was used to perform the summarization. Langchain was used for stream orchestration and integration with the OpenAI API.
+Using PyPDF2, Langchain and OpenAI, my approach was to extract all the text from a PDF file and then split it into chunks of up to 4000 tokens so that it can be sent to LLM. As LLM, ChatGPT-3.5-Turbo-16k was used to perform the summarization. Langchain was used for flow orchestration and integration with the OpenAI API.
+Additionally, a map-reduce approach was used where it summarize each document on it's own in a "map" step and then "reduce" the summaries into a final summary.
 
-At the end, an API is available in which its summary is returned given a PDF file, and also a UI for testing the application using Gradio.
+At the end, an API is available in which a summary is returned given a PDF file, and also a UI for testing the application using Gradio.
 
 This tool presents potential use cases for academic research with summarizing articles and book chapters, business document management summarizing reports, recruitment and HR summarizing CVs and also in the IT area with summarizing log files and technical documents.
 
