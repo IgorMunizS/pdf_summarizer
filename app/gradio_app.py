@@ -14,7 +14,7 @@ def main():
         title="PDF Summarizer",
         description="Enter the path to a PDF file and get its summary.",
     )
-
+    iface.queue()
     iface.launch(share=True)
 
 
